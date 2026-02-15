@@ -97,7 +97,11 @@ function App() {
         </div>
 
         <div className="col-span-2 col-start-4 row-start-2 flex flex-col items-center justify-center border-2 border-white rounded-lg bg-black/25 text-white">
-          <div className="text-2xl font-semibold">{Math.round(data.list[0].main.temp)}°C</div>
+          {data && Array.isArray(data.list) && data.list.length > 0 ? (
+            <div className="text-2xl font-semibold">{Math.round(data.list[0].main.temp)}°C</div>
+          ) : (
+            <div className="text-white/60">— °C</div>
+          )}
         </div>
 
         <div className="col-span-2 row-start-3 flex flex-col items-center justify-center border-2 border-white rounded-lg bg-black/25 text-white">6</div>
